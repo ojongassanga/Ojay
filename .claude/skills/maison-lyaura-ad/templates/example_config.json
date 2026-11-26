@@ -1,0 +1,25 @@
+{
+  "brand": "Maison LyAura",
+  "subtitle": "PYJAMAS FEMME",
+  "priceHtml": "9,000<small>frs</small>",
+  "payment": "Paiement à la livraison",
+  "phone": "683439278",
+  "duration": 28.8333,
+  "beat": 0.472,
+  "downbeat": 0.512,
+  "nameWrite": 0.51,
+  "land": 3.34,
+  "pulse": [17.51, 21.29],
+  "flash": 17.51,
+  "endCard": 23.168,
+  "infoAt": 25.056,
+  "veil": [0.68, 0.93],
+  "captions": [
+    {"at": 3.55, "html": "Tailles : M - 3XL"},
+    {"at": 6.18, "html": "<span class=\"w\">M</span><span class=\"w\">&nbsp;·&nbsp;L</span><span class=\"w\">&nbsp;·&nbsp;XL</span><span class=\"w\">&nbsp;·&nbsp;2XL</span><span class=\"w\">&nbsp;·&nbsp;3XL</span>", "words": [6.24, 6.65, 7.12, 7.60, 8.07]},
+    {"at": 9.96, "html": "Du M au 3XL ✦"},
+    {"at": 13.73, "html": "Ta taille t'attend ✦"},
+    {"at": 17.51, "html": "Du M au 3XL, pour toutes <span style=\"color:#d0332b\">♥</span>"},
+    {"at": 21.29, "html": "Tailles : M - 3XL"}
+  ]
+}
