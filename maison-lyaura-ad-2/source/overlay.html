@@ -45,7 +45,7 @@ html,body{margin:0;background:transparent}
 const $=id=>document.getElementById(id);
 const cl=x=>Math.max(0,Math.min(1,x)), seg=(t,a,b)=>cl((t-a)/(b-a));
 const eo=x=>1-Math.pow(1-x,3), ei=x=>x*x*x, eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
-const B0=0.512,BT=0.472,BAR=4*BT, END=25.06, FADE0=24.6;
+const B0=0.512,BT=0.472,BAR=4*BT, END=23.168, FADE0=22.72;
 const W=720,H=1280,U=7.2;
 const CAPS=[
  {h:'Tailles : M - 3XL',a:3.55,b:6.18},
@@ -78,7 +78,7 @@ function geo(){const s=$('S').getBoundingClientRect(),b=$('big').querySelector('
 function op(el,v){el.style.opacity=v;el.style.visibility=v<=0.001?'hidden':'visible'}
 window.render=function(t){
  if(!G)geo();
- op($('blush'),1-eo(seg(t,0,0.7)));op($('flash'),t>=17.51?0.38*Math.exp(-(t-17.51)*9):0);
+ op($('blush'),1-eo(seg(t,0,0.7)));op($('flash'),t>=17.51?0.18*Math.exp(-(t-17.51)*12):0);
  // opening name
  const big=$('big'),pill=big.querySelector('.pill'),nm=big.querySelector('.nm'),em=big.querySelector('em');
  const pin=eo(seg(t,0.3,0.65)), xo=eio(seg(t,3.34,3.8));
@@ -113,17 +113,17 @@ window.render=function(t){
  // end card
  const ve=eio(seg(t,END,END+0.7)); op($('veil'),ve);
  const en=$('en'),nb=en.querySelector('b');
- const w2=eio(seg(t,25.3,26.7));
+ const w2=eio(seg(t,23.41,24.81));
  op(en,ve>0?1:0);
  const edge=w2*112-6; nb.style.webkitMaskImage=nb.style.maskImage=`linear-gradient(90deg,#000 ${edge}%,transparent ${edge+8}%)`;
- nb.style.backgroundPosition=`${150-((t-25.3)*55)%250}% 0`;
- en.style.transform=`translateY(${-1.4*U*Math.sin(2*Math.PI*(t-26.7)/4)*seg(t,26.4,27.0)}px) scale(${1+0.015*Math.sin(2*Math.PI*(t-26)/4)})`;
+ nb.style.backgroundPosition=`${150-((t-23.41)*55)%250}% 0`;
+ en.style.transform=`translateY(${-1.4*U*Math.sin(2*Math.PI*(t-24.81)/4)*seg(t,24.5,25.1)}px) scale(${1+0.015*Math.sin(2*Math.PI*(t-24.1)/4)})`;
  const pen=$('pen');{const r=nb.getBoundingClientRect();op(pen,(w2>0&&w2<1)?1:0);pen.style.left=(r.left+r.width*Math.min(1,edge/100)-3*U)+'px';pen.style.top=(r.top+r.height*.35)+'px';pen.style.transform=`rotate(${t*120}deg) scale(${.8+.25*Math.sin(t*25)})`}
- const i1=eo(seg(t,26.94,27.45)),i2=eo(seg(t,27.42,27.9)),d=eio(seg(t,27.05,27.65));
+ const i1=eo(seg(t,25.056,25.56)),i2=eo(seg(t,25.528,26.0)),d=eio(seg(t,25.16,25.76));
  op($('l1'),i1);$('l1').style.transform=`translateY(${(1-i1)*2*U}px)`;
  $('dv').style.transform=`scaleX(${d})`;$('dv').style.opacity=d;
  op($('l2'),i2);$('l2').style.transform=`translateY(${(1-i2)*2*U}px)`;
- ORN.forEach((o,i)=>{const e=$('o'+i);const v=eo(seg(t,25.45+i*.15,26.05+i*.15));op(e,v);
+ ORN.forEach((o,i)=>{const e=$('o'+i);const v=eo(seg(t,23.56+i*.15,24.16+i*.15));op(e,v);
   e.style.transform=`translateY(${-3*U*(.5+.5*Math.sin(2*Math.PI*(t+o[4])/5))+(1-v)*3*U}px) rotate(${6*Math.sin(2*Math.PI*(t+o[4])/5+1)}deg) scale(${.8+.2*v})`});
  PET.forEach((l,i)=>{const e=$('p'+i);const per=6+i%3,pr=((t-END)/per+i*0.137)%1;const v=ve*(t>END?1:0);
   op(e,v*0.85*Math.min(1,pr*8,(1-pr)*8));e.style.left=(l/100*W+6*U*pr+2*U*Math.sin(t*2+i))+'px';e.style.top=(-0.04*H+pr*1.12*H)+'px';e.style.transform=`rotate(${pr*320+i*40}deg)`});
