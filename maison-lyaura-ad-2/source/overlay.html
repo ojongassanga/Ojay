@@ -1,0 +1,133 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="fonts.css">
+<style>
+html,body{margin:0;background:transparent}
+#S{position:relative;width:720px;height:1280px;overflow:hidden;container-type:inline-size}
+.a{position:absolute}
+#blush{inset:0;background:#fbe9e4}
+#veil{inset:0;background:radial-gradient(120% 80% at 50% 45%,rgba(80,16,22,.68),rgba(30,4,9,.93))}
+#big{left:0;right:0;top:56%;text-align:center;transform-origin:50% 50%}
+#big .pill{display:inline-block;padding:2cqw 6cqw 3cqw;border-radius:99px;background:rgba(255,250,246,.86);border:.4cqw solid rgba(201,164,103,.8);box-shadow:0 1cqw 4cqw rgba(80,10,10,.18)}
+#big .nm{font:400 14cqw/1.1 'Pinyon Script';color:#8e1f19;white-space:nowrap;padding:0 1cqw}
+#big em{display:block;font:500 3.6cqw/1 Jost;font-style:normal;letter-spacing:.4em;color:#a07d45;margin-top:1.5cqw;padding-left:.4em}
+#sig{left:5cqw;width:27cqw;top:30.5%;text-align:center}
+#sig span{display:inline-block;font:400 5.2cqw/1 'Pinyon Script';color:#8e1f19;background:rgba(255,250,246,.88);padding:1cqw 2.6cqw;border-radius:99px;white-space:nowrap;box-shadow:0 .5cqw 1.5cqw rgba(80,10,10,.15)}
+#tagw{left:5cqw;top:36%;width:27cqw;transform-origin:50% 50%}
+#tag{transform-origin:50% -2cqw;background:#fffaf6;border:.6cqw solid #c9a467;border-radius:7cqw 7cqw 2.4cqw 2.4cqw;padding:4.4cqw 0 2.6cqw;text-align:center;box-shadow:0 2cqw 5cqw rgba(60,8,8,.3);position:relative}
+#tag::before{content:'';position:absolute;left:50%;top:1.6cqw;width:2.2cqw;height:2.2cqw;margin-left:-1.1cqw;border-radius:50%;border:.5cqw solid #c9a467;box-sizing:border-box}
+#tag .p{font:600 8.4cqw/1.05 'Cormorant Garamond';color:#6e1712;white-space:nowrap}
+#tag .p small{font-size:4.8cqw;color:#a07d45}
+.cap{left:5cqw;top:47.5%;white-space:nowrap}
+.cap span.b{display:inline-block;font:italic 600 4.6cqw/1.25 'Cormorant Garamond';color:#7d1a15;background:rgba(255,250,246,.9);padding:.8cqw 2.4cqw;border-radius:1.6cqw;box-shadow:0 .5cqw 1.6cqw rgba(80,10,10,.15)}
+.tw{color:#f3dfb0;text-shadow:0 0 1.5cqw #fff,0 0 .5cqw #c9a467;transform-origin:50% 50%;line-height:1}
+#en{left:0;right:0;top:37%;text-align:center}
+#en b{display:inline-block;font:400 13.5cqw/1.15 'Pinyon Script';white-space:nowrap;padding:0 4cqw;background:linear-gradient(100deg,#e9cf9c 0%,#fff6e6 40%,#f7c9d1 50%,#e9cf9c 62%,#c9a467 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 .4cqw 1cqw rgba(30,0,5,.5))}
+#info{left:0;right:0;top:54%;text-align:center;color:#fbeee9}
+#l1{font:italic 600 8cqw/1.1 'Cormorant Garamond';text-shadow:0 .3cqw 1cqw rgba(30,0,5,.5)}
+#dv{width:34%;height:.4cqw;margin:3.5cqw auto;background:linear-gradient(90deg,transparent,#e9cf9c,transparent)}
+#l2{font:600 8.5cqw/1 'Cormorant Garamond';letter-spacing:.08em;color:#e9cf9c;text-shadow:0 .3cqw 1cqw rgba(30,0,5,.5)}
+.orn svg{display:block;width:100%;height:auto}
+.petal{width:3cqw;height:2cqw;border-radius:60% 0 60% 0;background:#f4a9b8}
+</style></head><body><div id="S">
+<div class="a" id="veil"></div>
+<div id="endlayer"></div>
+<div class="a" id="en"><b>Maison LyAura</b></div>
+<div class="a tw" id="pen" style="font-size:6cqw">✦</div>
+<div class="a" id="info"><div id="l1">Paiement à la livraison</div><div id="dv"></div><div id="l2">683439278</div></div>
+<div class="a" id="sig"><span>Maison LyAura</span></div>
+<div class="a" id="tagw"><div id="tag"><div class="p">9,000<small>frs</small></div></div></div>
+<div id="caps"></div>
+<div id="spk"></div>
+<div class="a" id="big"><div class="pill"><div class="nm">Maison LyAura</div><em>PYJAMAS FEMME</em></div></div>
+<div class="a tw" id="bigspark" style="font-size:7cqw">✦</div>
+<div class="a" id="flash" style="inset:0;background:#fff8f4"></div><div class="a" id="blush"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=x=>Math.max(0,Math.min(1,x)), seg=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3), ei=x=>x*x*x, eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const B0=0.512,BT=0.472,BAR=4*BT, END=25.06, FADE0=24.6;
+const W=720,H=1280,U=7.2;
+const CAPS=[
+ {h:'Tailles : M - 3XL',a:3.55,b:6.18},
+ {h:'<span class="w">M</span><span class="w">&nbsp;·&nbsp;L</span><span class="w">&nbsp;·&nbsp;XL</span><span class="w">&nbsp;·&nbsp;2XL</span><span class="w">&nbsp;·&nbsp;3XL</span>',a:6.18,b:9.96,words:[6.24,6.65,7.12,7.60,8.07]},
+ {h:'Du M au 3XL ✦',a:9.96,b:13.73},
+ {h:"Ta taille t'attend ✦",a:13.73,b:17.51},
+ {h:'Du M au 3XL, pour toutes <span style="color:#d0332b">♥</span>',a:17.51,b:21.29},
+ {h:'Tailles : M - 3XL',a:21.29,b:END,last:true}];
+$('caps').innerHTML=CAPS.map((c,i)=>`<div class="a cap" id="c${i}"><span class="b">${c.h}</span></div>`).join('');
+const SPK=[[-3,-2,5],[24,-3,4],[27,9,3.5],[-2,12,3]];
+$('spk').innerHTML=SPK.map((s,i)=>`<div class="a tw" id="s${i}" style="font-size:${s[2]}cqw">✦</div>`).join('');
+const SV={
+bow:`<svg viewBox="0 0 40 26"><path d="M18 12l-6 13M22 12l6 13" stroke="#f4b6c2" stroke-width="3.2" stroke-linecap="round"/><path d="M20 12C12 1 2 2 3 12C2 22 12 22 20 12ZM20 12C28 1 38 2 37 12C38 22 28 22 20 12Z" fill="#f7c3cd" stroke="#e08fa2" stroke-width="1.2"/><circle cx="20" cy="12" r="3.4" fill="#e79aac"/></svg>`,
+moon:`<svg viewBox="0 0 34 30"><path d="M18 3a12 12 0 1 0 8 21A10 10 0 0 1 18 3z" fill="#e9cf9c"/><path d="M28 4l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="#fff6e6"/></svg>`,
+mask:`<svg viewBox="0 0 46 22"><path d="M5 7Q23 0 41 7Q43 18 31 18Q23 15 15 18Q3 18 5 7Z" fill="#f7c9d1" stroke="#e9cf9c" stroke-width="1"/><path d="M11 10q4 3 8 0M27 10q4 3 8 0" stroke="#7a2a33" fill="none" stroke-width="1.3" stroke-linecap="round"/><path d="M5 8L0 9M41 8L46 9" stroke="#e9cf9c" stroke-width="1.4"/></svg>`,
+rose:`<svg viewBox="0 0 30 34"><path d="M15 20q-1 8 1 14" stroke="#6f9a5a" stroke-width="2" fill="none"/><path d="M16 27q7-5 10-1q-6 4-10 1z" fill="#7fae66"/><circle cx="15" cy="12" r="10" fill="#d9434f"/><path d="M15 12m-5 0a5 5 0 1 1 10 0a3 3 0 1 1-6 0" stroke="#9e1f2b" stroke-width="1.4" fill="none"/></svg>`,
+heart:`<svg viewBox="0 0 24 22"><path d="M12 21S1 14 1 7a5.5 5.5 0 0 1 11-1a5.5 5.5 0 0 1 11 1c0 7-11 14-11 14z" fill="#f4a9b8"/></svg>`,
+pearls:`<svg viewBox="0 0 60 20"><g fill="#fff6ee" stroke="#e9cf9c" stroke-width=".6">${[0,1,2,3,4,5,6,7,8].map(i=>`<circle cx="${4+i*6.5}" cy="${4+Math.sin(i/8*Math.PI)*11}" r="3"/>`).join('')}</g></svg>`};
+const ORN=[['bow',6,6,15,0],['moon',44,9,11,1.2],['heart',74,18,7,.6],['mask',8,76,19,1.8],['rose',72,75,11,.9],['pearls',36,85,24,2.4],['heart',10,30,5,2],['heart',84,58,4.5,1.4]];
+const PET=[4,12,22,76,86,94];
+const TWE=[[12,22,3],[80,47,4.5],[18,52,6],[70,72,3],[45,18,4.5],[30,80,6],[88,33,3.5],[6,62,4]];
+$('endlayer').innerHTML=ORN.map((o,i)=>`<div class="a orn" id="o${i}" style="left:${o[1]}%;top:${o[2]}%;width:${o[3]}cqw">${SV[o[0]]}</div>`).join('')
+ +PET.map((l,i)=>`<i class="a petal" id="p${i}"></i>`).join('')
+ +TWE.map((w,i)=>`<div class="a tw" id="e${i}" style="left:${w[0]}%;top:${w[1]}%;font-size:${w[2]}cqw">✦</div>`).join('');
+// geometry for name glide
+let G=null;
+function geo(){const s=$('S').getBoundingClientRect(),b=$('big').querySelector('.pill').getBoundingClientRect(),g=$('sig').querySelector('span').getBoundingClientRect();
+ G={dx:(g.left+g.width/2)-(b.left+b.width/2),dy:(g.top+g.height/2)-(b.top+b.height/2),k:g.width/b.width,
+ en:$('en').querySelector('b').getBoundingClientRect(),S:s}}
+function op(el,v){el.style.opacity=v;el.style.visibility=v<=0.001?'hidden':'visible'}
+window.render=function(t){
+ if(!G)geo();
+ op($('blush'),1-eo(seg(t,0,0.7)));op($('flash'),t>=17.51?0.38*Math.exp(-(t-17.51)*9):0);
+ // opening name
+ const big=$('big'),pill=big.querySelector('.pill'),nm=big.querySelector('.nm'),em=big.querySelector('em');
+ const pin=eo(seg(t,0.3,0.65)), xo=eio(seg(t,3.34,3.8));
+ op(big,pin*(1-seg(t,3.62,3.8)));
+ big.style.transform=`translate(${G.dx*xo}px,${G.dy*xo}px) scale(${(1-xo)+G.k*xo*1.05}) translateY(${(1-pin)*2*U}px)`;
+ const wr=eio(seg(t,0.51,1.65)); nm.style.clipPath=`inset(-20% ${100-wr*100}% -20% -5%)`;
+ op(em,eo(seg(t,1.5,2.0)));
+ const bs=$('bigspark'); const bx=360-G.en.width*0.0; 
+ { const r=pill.getBoundingClientRect(); const px=r.left+ r.width*(0.08+0.84*wr); op(bs,(wr>0&&wr<1)?1:Math.max(0,1-seg(t,1.65,2.0))*(t<3?1:0)*(wr>=1?1:0)); bs.style.left=(px-3.5*U)+'px'; bs.style.top=(r.top+r.height*0.25)+'px'; bs.style.transform=`scale(${0.7+0.3*Math.sin(t*20)}) rotate(${t*90}deg)`;}
+ // stack fade out
+ const so=1-seg(t,FADE0,END);
+ op($('sig'),seg(t,3.58,3.8)*so);
+ // price tag
+ const q=eio(seg(t,0.1,3.34));
+ let sc=0.35+0.65*q;
+ if(t>=17.51&&t<21.29){const k=Math.floor((t-17.51)/BT),dt=t-(17.51+k*BT);sc*=1+0.09*Math.exp(-dt*7)}
+ const tw=$('tagw');
+ tw.style.transform=`translateY(${-(1-q)*620}px) scale(${sc})`;
+ op(tw,seg(t,0.05,0.4)*so);
+ $('tag').style.transform=`rotate(${4*Math.sin(2*Math.PI*(t-B0)/BAR)}deg)`;
+ const glow=(t>=17.51&&t<21.29)?1-seg(t,21.0,21.29):0;
+ $('tag').style.boxShadow=`0 0 0 ${1.2*glow}cqw rgba(243,223,176,${.6*glow}),0 2cqw 5cqw rgba(60,8,8,.3)`;
+ // sparkles around tag in price moment
+ const tr=$('tagw').getBoundingClientRect();
+ SPK.forEach((s,i)=>{const e=$('s'+i);let v=0;if(t>=17.51&&t<21.29){const ph=((t-17.51-i*BT*.5)/BT);const f=ph-Math.floor(ph);v=ph<0?0:Math.exp(-f*3)}
+  v*=1-seg(t,21.0,21.29); op(e,v); e.style.left=(tr.left+s[0]*U)+'px';e.style.top=(tr.top+s[1]*U)+'px';e.style.transform=`scale(${.5+.6*v}) rotate(${t*60}deg)`});
+ // captions
+ CAPS.forEach((c,i)=>{const e=$('c'+i);const pi=eo(seg(t,c.a+0.08,c.a+0.45));
+  const po=c.last?eio(seg(t,FADE0,END)):ei(seg(t,c.b-0.35,c.b));
+  op(e,pi*(1-po)); e.style.transform=`translate(${-16*U*po}px,${1.5*U*(1-pi)}px)`;
+  if(c.words){[...e.querySelectorAll('.w')].forEach((w,j)=>{const v=eo(seg(t,c.words[j],c.words[j]+0.3));w.style.opacity=v;w.style.display=(t>=c.words[j]||j==0)?'inline-block':'none';w.style.transform=`scale(${.85+.15*v})`})}});
+ // end card
+ const ve=eio(seg(t,END,END+0.7)); op($('veil'),ve);
+ const en=$('en'),nb=en.querySelector('b');
+ const w2=eio(seg(t,25.3,26.7));
+ op(en,ve>0?1:0);
+ const edge=w2*112-6; nb.style.webkitMaskImage=nb.style.maskImage=`linear-gradient(90deg,#000 ${edge}%,transparent ${edge+8}%)`;
+ nb.style.backgroundPosition=`${150-((t-25.3)*55)%250}% 0`;
+ en.style.transform=`translateY(${-1.4*U*Math.sin(2*Math.PI*(t-26.7)/4)*seg(t,26.4,27.0)}px) scale(${1+0.015*Math.sin(2*Math.PI*(t-26)/4)})`;
+ const pen=$('pen');{const r=nb.getBoundingClientRect();op(pen,(w2>0&&w2<1)?1:0);pen.style.left=(r.left+r.width*Math.min(1,edge/100)-3*U)+'px';pen.style.top=(r.top+r.height*.35)+'px';pen.style.transform=`rotate(${t*120}deg) scale(${.8+.25*Math.sin(t*25)})`}
+ const i1=eo(seg(t,26.94,27.45)),i2=eo(seg(t,27.42,27.9)),d=eio(seg(t,27.05,27.65));
+ op($('l1'),i1);$('l1').style.transform=`translateY(${(1-i1)*2*U}px)`;
+ $('dv').style.transform=`scaleX(${d})`;$('dv').style.opacity=d;
+ op($('l2'),i2);$('l2').style.transform=`translateY(${(1-i2)*2*U}px)`;
+ ORN.forEach((o,i)=>{const e=$('o'+i);const v=eo(seg(t,25.45+i*.15,26.05+i*.15));op(e,v);
+  e.style.transform=`translateY(${-3*U*(.5+.5*Math.sin(2*Math.PI*(t+o[4])/5))+(1-v)*3*U}px) rotate(${6*Math.sin(2*Math.PI*(t+o[4])/5+1)}deg) scale(${.8+.2*v})`});
+ PET.forEach((l,i)=>{const e=$('p'+i);const per=6+i%3,pr=((t-END)/per+i*0.137)%1;const v=ve*(t>END?1:0);
+  op(e,v*0.85*Math.min(1,pr*8,(1-pr)*8));e.style.left=(l/100*W+6*U*pr+2*U*Math.sin(t*2+i))+'px';e.style.top=(-0.04*H+pr*1.12*H)+'px';e.style.transform=`rotate(${pr*320+i*40}deg)`});
+ TWE.forEach((w,i)=>{const e=$('e'+i);const v=ve*(0.25+0.75*(0.5+0.5*Math.sin(2*Math.PI*(t-B0)/(BT*2)+i*1.3)));op(e,t>END?v:0);e.style.transform=`scale(${.6+.4*v})`});
+};
+document.fonts.ready.then(()=>{window.READY=true});
+</script></body></html>
