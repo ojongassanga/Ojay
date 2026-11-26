@@ -12,7 +12,7 @@ html,body{margin:0;background:transparent}
 #sig{left:5cqw;width:27cqw;top:30.5%;text-align:center}
 #sig span{display:inline-block;font:400 5.2cqw/1 'Pinyon Script';color:#8e1f19;background:rgba(255,250,246,.88);padding:1cqw 2.6cqw;border-radius:99px;white-space:nowrap;box-shadow:0 .5cqw 1.5cqw rgba(80,10,10,.15)}
 #tagw{left:5cqw;top:36%;width:27cqw;transform-origin:50% 50%}
-#tag{transform-origin:50% -2cqw;background:#fffaf6;border:.6cqw solid #c9a467;border-radius:7cqw 7cqw 2.4cqw 2.4cqw;padding:4.4cqw 0 2.6cqw;text-align:center;box-shadow:0 2cqw 5cqw rgba(60,8,8,.3);position:relative}
+#tag{overflow:hidden;transform-origin:50% -2cqw;background:#fffaf6;border:.6cqw solid #c9a467;border-radius:7cqw 7cqw 2.4cqw 2.4cqw;padding:4.4cqw 0 2.6cqw;text-align:center;box-shadow:0 2cqw 5cqw rgba(60,8,8,.3);position:relative}
 #tag::before{content:'';position:absolute;left:50%;top:1.6cqw;width:2.2cqw;height:2.2cqw;margin-left:-1.1cqw;border-radius:50%;border:.5cqw solid #c9a467;box-sizing:border-box}
 #tag .p{font:600 8.4cqw/1.05 'Cormorant Garamond';color:#6e1712;white-space:nowrap}
 #tag .p small{font-size:4.8cqw;color:#a07d45}
@@ -34,12 +34,12 @@ html,body{margin:0;background:transparent}
 <div class="a tw" id="pen" style="font-size:6cqw">✦</div>
 <div class="a" id="info"><div id="l1"></div><div id="dv"></div><div id="l2"></div></div>
 <div class="a" id="sig"><span class="brand"></span></div>
-<div class="a" id="tagw"><div id="tag"><div class="p" id="price"></div></div></div>
+<div class="a" id="tagw"><div id="tag"><div class="p" id="price"></div><i id="shine" style="position:absolute;inset:0;pointer-events:none"></i></div></div>
 <div id="caps"></div>
 <div id="spk"></div>
 <div class="a" id="big"><div class="pill"><div class="nm brand"></div><em id="sub"></em></div></div>
 <div class="a tw" id="bigspark" style="font-size:7cqw">✦</div>
-<div class="a" id="flash" style="inset:0;background:#fff8f4"></div><div class="a" id="blush"></div>
+<div class="a" id="leak" style="inset:0"></div><div class="a" id="flash" style="inset:0;background:#fff8f4"></div><div class="a" id="blush"></div>
 </div>
 <script>
 const $=id=>document.getElementById(id);
@@ -74,7 +74,9 @@ function geo(){const s=$('S').getBoundingClientRect(),b=$('big').querySelector('
 function op(el,v){el.style.opacity=v;el.style.visibility=v<=0.001?'hidden':'visible'}
 window.render=function(t){
  if(!G)geo();
- op($('blush'),1-eo(seg(t,0,0.7)));op($('flash'),FL!=null&&t>=FL?0.18*Math.exp(-(t-FL)*12):0);
+ op($('blush'),1-eo(seg(t,0,0.7)));{let fv=0;(CFG.flashes||(FL!=null?[FL]:[])).forEach(f=>{if(t>=f)fv=Math.max(fv,0.18*Math.exp(-(t-f)*12))});op($('flash'),fv);}
+ {let lv=0,lx=0;(CFG.leaks||[]).forEach(L=>{const p=(t-L+0.22)/0.5;if(p>0&&p<1){lv=Math.sin(Math.PI*p);lx=-30+160*p}});const le=$('leak');op(le,lv);if(lv>0)le.style.background=`linear-gradient(115deg,transparent ${lx-28}%,rgba(255,200,150,.30) ${lx-10}%,rgba(255,236,210,.42) ${lx}%,rgba(255,180,170,.28) ${lx+10}%,transparent ${lx+28}%)`;}
+ {const sh=$('shine');const cyc=2*BAR,p=((t-LAND)%cyc)/0.6;if(t>LAND&&p<1){const x=-40+180*p;sh.style.background=`linear-gradient(110deg,transparent ${x-14}%,rgba(255,255,255,.85) ${x}%,transparent ${x+14}%)`;sh.style.opacity=1}else sh.style.opacity=0;}
  // opening name
  const big=$('big'),pill=big.querySelector('.pill'),nm=big.querySelector('.nm'),em=big.querySelector('em');
  const pin=eo(seg(t,0.3,0.65)), xo=eio(seg(t,LAND,LAND+0.46));
